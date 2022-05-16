@@ -13,3 +13,5 @@ This project allows users to create an account where they can check out the stat
 poke save uses the Pokemon API.
 https://pokeapi.co/
 
+## Youtube vide
+https://youtu.be/d3KFxfFajOA
