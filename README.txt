@@ -25,3 +25,6 @@ Or
 ```bash
 $ node mainServer.js <PORT>
 ```
+
+## Issues
+Had problems deploying on Heroku
