@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+    <link href="/css/acctPage.css" rel="stylesheet" type="text/css">
+	<title>Registration</title>
+</head>
+
+<body>
+    <hr>
+    <h1>Register</h1>
+    <h2>Create your account. It only takes a minute.</h2>
+    <div id="error">
+       <b><%- msg %></b>
+    </div>
+    <form action="/register" method="POST">
+        <input type="text" name="fName" placeholder="First Name" required><br>
+        <input type="text" name="lName" placeholder="Last Name" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" class="shorten" id="initial" name="password" placeholder="Password" required>
+        <input type="button" class="button pButn" id="iButton" value="Show" onclick="iPassword();"><br>
+        <input type="password" class="shorten" id="confirm" name="confirm" placeholder="Confirm Password" required>
+        <input type="button" class="button pButn" id="cButton" value="Show" onclick="cPassword();"><br><br><br>
+        <input type="submit" class="button" id="sBtn" value="Register">
+        <p>Already have an account? <a href="/">Login!</a><br></p>
+    </form>
+	<hr>
+    <script>
+        function toggle(pwdId, button) {
+            let pEle = document.getElementById(pwdId);
+            let bEle = document.getElementById(button);
+            
+            if (bEle.value == "Show") {
+                pEle.type = "text";
+                bEle.value = "Hide";
+            } else {
+                pEle.type = "password";
+                bEle.value = "Show";
+            }
+        }
+
+        function iPassword() {
+            toggle("initial", "iButton");
+        }
+
+        function cPassword() {
+            toggle("confirm", "cButton");
+        }
+
+    </script>
+</body>
+
+
+
+

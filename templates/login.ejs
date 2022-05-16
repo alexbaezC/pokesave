@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+    <link href="/css/acctPage.css" rel="stylesheet" type="text/css">
+	<title>Login</title>
+</head>
+
+<body>
+    <hr>
+    <h1>Login</h1>
+    <div id="error">
+        <% if (messages.error) { %>
+           <b><%= messages.error %></b> 
+        <% } %>
+    </div>
+    <form action="/" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required><br>
+        <input type="password" class="shorten" id="pwd" name="password" placeholder="Enter your password" required>
+        <input type="button" class="button pButn" id="iButton" value="Show" onclick="lPassword();"><br><br>
+        <input type="submit" class="button" id="sBtn" value="Login">
+        <p>Don't have an account? <a href="/register">Signup now!</a><br></p>
+    </form>
+	<hr>
+    <script>
+        function toggle(pwdId, button) {
+            let pEle = document.getElementById(pwdId);
+            let bEle = document.getElementById(button);
+            
+            if (bEle.value == "Show") {
+                pEle.type = "text";
+                bEle.value = "Hide";
+            } else {
+                pEle.type = "password";
+                bEle.value = "Show";
+            }
+        }
+
+        function lPassword() {
+            toggle("pwd", "iButton");
+        }
+
+    </script>
+</body>

@@ -1,0 +1,78 @@
+h1 {
+  color: azure;
+  text-align: center;
+}
+
+h2 {
+  color: azure;
+  text-align: center;
+}
+
+body {
+  background-image: url("frontPic.jpg");
+  background-size: cover;
+  padding:0;
+  height: 100vh;
+  margin:0;
+
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+hr {
+  margin-top: 40px;
+}
+
+form {
+  background-color: whitesmoke;
+  text-align: center;
+  padding: 40px;
+}
+
+input {
+  width: 250px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.shorten {
+  width: 180px;
+}
+
+::placeholder {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: gray;
+}
+
+p {
+  font-weight: bold;
+  color: rgb(104, 100, 104);
+}
+
+#sBtn {
+  height: 40px;
+  font-size: medium;
+}
+
+.pButn {
+  width: 60px;
+  font-size: small;
+}
+
+.button {
+  font-style: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: rgb(91, 87, 224);
+  color: blanchedalmond;
+
+  border-radius: 2px;
+}
+
+
+#error {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(67, 67, 144);
+  background-color: rgb(175, 208, 208);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 2px;
+}
