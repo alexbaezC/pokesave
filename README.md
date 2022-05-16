@@ -3,7 +3,7 @@ This is the final project of the course CMSC 335
 
 ## Authors: 
 Alejandro Baez Corral (UID: 116197373),
-Mohini Dutta (UID: 116075657 ),
+Mohini Dutta (UID: 116075657),
 Matthew Sandler (UID: 115948693)
 
 ## Description
