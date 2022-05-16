@@ -1,0 +1,19 @@
+{
+  "name": "pokesave",
+  "version": "1.0.0",
+  "description": "This is the final project of the course CMSC 335",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexbaezC/pokesave.git"
+  },
+  "author": "Alejandro Baez Corral",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexbaezC/pokesave/issues"
+  },
+  "homepage": "https://github.com/alexbaezC/pokesave#readme"
+}
