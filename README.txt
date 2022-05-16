@@ -15,3 +15,13 @@ https://pokeapi.co/
 
 ## Youtube video
 https://youtu.be/d3KFxfFajOA
+
+## How to run
+Either execute the following command:
+```bash
+$ npm start
+```
+Or 
+```bash
+$ node mainServer.js <PORT>
+```
