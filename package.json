@@ -2,9 +2,10 @@
   "name": "pokesave",
   "version": "1.0.0",
   "description": "This is the final project of the course CMSC 335",
-  "main": "index.js",
+  "main": "mainServer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node mainServer.js 5000"
   },
   "repository": {
     "type": "git",
