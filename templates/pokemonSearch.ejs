@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title><%- name %></title>
+</head>
+<style>
+	body{
+    	background-color: rgb(30, 30, 30);
+	}
+
+	h1{
+   	 	color: white;
+	}
+
+	form{
+    	color: white
+	}
+    table{
+        color: white;
+    }
+    a{
+        color: white;
+    }
+    table.center {
+        margin-left: auto; 
+        margin-right: auto;
+    }
+    a.right {
+		float: right;
+    }
+    th{
+        font-size: 20px;
+    }
+    td{
+        font-size: 18px
+    }
+    th.stat{
+        text-align: left;
+    }
+    .pokeTable{
+        border: 1px solid white;
+        border-collapse: collapse;
+    }
+</style>
+<body>
+    <header style="align-content: left"><a url = "to team builder" class = "right">Team Builder</a></header>
+	<form action= <%-url %> method="post">
+		<h1>Search a Pokemon!</h1>
+		<fieldset>
+			<label><strong>Pokemon: </strong><input type="text" name="pokemon"></label>
+		</fieldset>
+		<br>
+		<input type="submit" value="Search"/>
+	</form>
+    <div style = "margin-left: auto; margin-right: auto;">
+        <table class = "center" style = "border: 1px solid white;
+        border-collapse: collapse;">
+            <tr class = "pokeTable">
+               <td colspan="2" class = "pokeTable"><img src=<%- imageFront%> alt=<%- name %>></td> 
+            </tr>
+            <tr class = "pokeTable">
+                <th class = "pokeTable">Name:</th>
+                <th class = "pokeTable">Abilities:</th>
+            </tr>
+            <tr class = "pokeTable">
+                <td class = "pokeTable"><%- name %></td>
+                <td class = "pokeTable"><%- abilities %></td>
+            </tr>
+            <tr class = "pokeTable">
+                <th class = "pokeTable" colspan="2">Type:</th>
+            </tr>
+            <tr class = "pokeTable">
+                <td class = "pokeTable" colspan="2"><%- types %></td>
+            </tr>
+        </table>
+        <table class = "center">
+            <tr>
+                <th colspan="2">Base Stats</th>
+            </tr>
+            <tr>
+                <th class = "stat">HP:</th>
+                <td><%- hp %></td>
+            </tr>
+            <tr>
+                <th class = "stat">Attack:</th>
+                <td><%- attack %></td>
+            </tr>
+            <tr>
+                <th class = "stat">Defense:</th>
+                <td><%- defense %></td>
+            </tr>
+            <tr>
+                <th class = "stat">Special Attack:</th>
+                <td><%- spAttack %></td>
+            </tr>
+            <tr>
+                <th class = "stat">Special Defense:</th>
+                <td><%- spDefense %></td>
+            </tr>
+            <tr>
+                <th class = "stat">Speed:</th>
+                <td><%- speed %></td>
+            </tr>
+        </table>
+        <div style= "text-align: center;">
+            <button onclick="add_to_team_builder">Add <%- name %> to your team</button>
+        </div>
+    </div>
+    
+</body>
+<script>
+
+</script>
+</html>

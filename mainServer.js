@@ -7,6 +7,10 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const locStgy = require('passport-local').Strategy;
+const fileURLToPath = require('url');
+const fetch = require('node-fetch');
+
+process.stdin.setEncoding("utf8");
 
 require('dotenv').config({path:'./.env'});
 
@@ -15,6 +19,8 @@ const { authenticate } = require('passport');
 const { builtinModules } = require("module");
 
 let app = express();
+
+
 
 var rLine = require('readline').createInterface({
     input: process.stdin,
@@ -53,6 +59,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(__dirname + '/public'));
 
+//app.use(bodyparser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 app.use(flash());
 app.use(session({
@@ -168,9 +176,90 @@ app.post("/register", notAuth, async (request, response) => {
 }); 
 
 app.get("/home", checkAuth, (request, response) => {
-    response.render('home');
-}); 
 
+    let variables = {
+        url : postUrl + "/pokemonSearch"
+    };
+    console.log('here');
+    response.render("pokemon", variables);
+});
+
+app.get('/pokemonSearch/:name', checkAuth, (request, response) => {
+    (async() => {
+        const apiResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${request.params.name}`);
+        if(apiResponse.ok){
+        const myJson = await apiResponse.json();
+        let abilities = "";
+        myJson.abilities.forEach(ability => {
+            abilities = abilities + ability.ability.name + "<br>";
+        });
+        let types = "";
+        myJson.types.forEach(type => {
+            types = types + type.type.name + "<br>";
+        });
+        let variables = {
+            url : postUrl + "/pokemonSearch",
+            name: myJson.name,
+            imageFront : myJson.sprites.front_default,
+            abilities: abilities,
+            types: types,
+            hp: myJson.stats[0].base_stat,
+            attack: myJson.stats[1].base_stat,
+            defense: myJson.stats[2].base_stat,
+            spAttack: myJson.stats[3].base_stat,
+            spDefense: myJson.stats[4].base_stat,
+            speed: myJson.stats[5].base_stat
+        }
+        response.render("pokemonSearch", variables);
+        } else {
+        let variables = {
+            url : postUrl + "/pokemonSearch"
+        }
+        response.render("pokemonSearchNotFound", variables);
+        }
+    
+  })();
+});
+
+app.post("/pokemonSearch", checkAuth, (request, response) => {
+    (async () => {
+        console.log(request.user);
+        let searchedMon = request.body.pokemon.toLowerCase();
+        const apiResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchedMon}`);
+        if(apiResponse.ok){
+        const myJson = await apiResponse.json();
+        let abilities = "";
+        myJson.abilities.forEach(ability => {
+            abilities = abilities + ability.ability.name + "<br>";
+        });
+        let types = "";
+        myJson.types.forEach(type => {
+            types = types + type.type.name + "<br>";
+        });
+        let variables = {
+            url : postUrl + "/pokemonSearch",
+            name: myJson.name,
+            imageFront : myJson.sprites.front_default,
+            abilities: abilities,
+            types: types,
+            hp: myJson.stats[0].base_stat,
+            attack: myJson.stats[1].base_stat,
+            defense: myJson.stats[2].base_stat,
+            spAttack: myJson.stats[3].base_stat,
+            spDefense: myJson.stats[4].base_stat,
+            speed: myJson.stats[5].base_stat
+        }
+        response.render("pokemonSearch", variables);
+        } else {
+        let variables = {
+            url : postUrl + "/pokemonSearch"
+        }
+        response.render("pokemonSearchNotFound", variables);
+        }
+      
+      
+    })();
+});
 
 async function addUser(client, databaseAndCollection, newUser) {
     const result = await client.db(databaseAndCollection.db).collection(databaseAndCollection.collection).insertOne(newUser);
@@ -257,12 +346,14 @@ function notAuth(request, response, next) {
 }
 
 function checkAuth(request, response, next) {
+    console.log("checking")
     if (request.isAuthenticated()) {
+        //console.log(request.user.userEmail);
         return next();
     } else {
         response.redirect('/');
     }
 }
 
-
-http.createServer(app).listen(portNumber); 
+let postUrl = `http://localhost:${portNumber}`;
+http.createServer(app).listen(portNumber);

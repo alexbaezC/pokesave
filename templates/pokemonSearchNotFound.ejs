@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Pokemon Not Found</title>
+</head>
+<style>
+	body{
+    	background-color: rgb(30, 30, 30);
+		color: white;
+	}
+
+	h1{
+   	 	color: white;
+	}
+
+	form{
+    	color: white;
+	}
+	a.right {
+		float: right;
+    }
+</style>
+<body>
+	<header><a url = "to team builder" class = "right">Team Builder</a></header>
+	<form action= <%-url %> method="post">
+		<h1>Search a Pokemon!</h1>
+		<fieldset>
+			<label><strong>Pokemon: </strong><input type="text" name="pokemon"></label>
+		</fieldset>
+		<br>
+		<input type="submit" value="Search"/>
+	</form>
+	<p>Pokemon Not Found! Please search for another Pokemon</p>
+</body>
+
+</html>

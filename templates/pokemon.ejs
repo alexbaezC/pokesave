@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Search a Mon</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<style>
+	body{
+    	background-color: rgb(30, 30, 30);
+	}
+
+	h1{
+   	 	color: white;
+	}
+
+	form{
+    	color: white
+	}
+	a.right {
+		float: right;
+    }
+</style>
+<body>
+	<header><a url = "to team builder" class = "right">Team Bulder</a></header>
+	<form action= <%-url %> method="post">
+		<h1>Search a Pokemon!</h1>
+		<fieldset>
+			<label><strong>Pokemon: </strong><input type="text" name="pokemon"></label>
+		</fieldset>
+		<br>
+		<input type="submit" value="Search"/>
+	</form>
+</body>
+
+</html>
