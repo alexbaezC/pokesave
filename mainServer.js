@@ -180,7 +180,7 @@ app.get("/home", checkAuth, (request, response) => {
     let variables = {
         url : postUrl + "/pokemonSearch"
     };
-    console.log('here');
+    //console.log('here');
     response.render("pokemon", variables);
 });
 
@@ -223,7 +223,7 @@ app.get('/pokemonSearch/:name', checkAuth, (request, response) => {
 
 app.post("/pokemonSearch", checkAuth, (request, response) => {
     (async () => {
-        console.log(request.user);
+        //console.log(request.user);
         let searchedMon = request.body.pokemon.toLowerCase();
         const apiResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchedMon}`);
         if(apiResponse.ok){
